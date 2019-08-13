@@ -2,9 +2,9 @@
 
 This package helps calculate permutation importance of features for a given model based on a given metric to measure performance. The idea is to assess the performance of a _trained model_ based on a given performance metric if one input feature were taking away (values of the feature are shuffled between samples).
 
-Results are usually more meaningful than _feature importance_ provided by Boosted Decision Trees, provide an uncertainty measure, and allow more flexibility to choose evaluation metric as well as test dataset. It is faster to compute compared to _iterative removal_ method because there is no re-training.
+Results are usually more meaningful than _feature importance_ provided by Boosted Decision Trees, can be avalauted for other models such as Neural Networks, provide an uncertainty measure, and allow more flexibility to choose evaluation metric as well as test dataset. It is faster to compute compared to _iterative removal_ method because there is no re-training.
 
-This package handles 'sample_weights', custom performance metrics, and provides some predefined High Energy Physics based metrics.  It can be used to evaluate feature importance on a given dataset that is not necessarily from the same distribution as the training set, so the feature importances of a trained model can be recalculated for a new test dataset, and/or evaluation metric. This might be useful to test sensitivity to systematic shifts (domain adaptation), or just the impact of features for particular subsets of the dataset (samples with 1 jet, 2 jets, samples with a score > 0.6, signal at mass 700 GeV, 800 GeV, etc).
+This package handles 'sample_weights', custom performance metrics, and provides some predefined High Energy Physics based metrics.  It can be used to evaluate feature importance on a given dataset that is not necessarily from the same distribution as the training set, so the feature importances of a trained model can be recalculated for a new test dataset, and/or evaluation metric. This might be useful to test sensitivity to systematic shifts (domain adaptation), or just the impact of features for particular subsets of the dataset (samples with 1 jet, 2 jets, samples with a score > 0.6, signal at mass 700 GeV, 800 GeV, etc). It can also handle multiple input matrices as long as they are combined in the form of a list `X_eval` (if your evaluation metric requires systematics up, systematics down datasets for example).
 
 >WARNING: Choosing the right metric is essential to get meaningful results. Make sure to check if the value of PI for your given features makes sense. If 'discovery significance' is your metric (which usually ranges between 0 and 6), a permutation importance of 112 for a particular feature should worry you.
 
@@ -47,3 +47,4 @@ Plot feature importances with error bars
 
 - Multiprocessing
 - AUC with negative weight handling
+- Add more physics metrics (significance with systematics, interference)
