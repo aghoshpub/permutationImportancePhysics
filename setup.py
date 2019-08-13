@@ -3,7 +3,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
      name='PermutationImportancePhysics',
-     version='0.111',
+     version='0.12',
      packages=['permutationimportancephysics',],
      author='A Ghosh',
      description="Permutation Importance for Physics",
